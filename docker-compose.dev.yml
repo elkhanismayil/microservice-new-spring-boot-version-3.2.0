@@ -1,0 +1,18 @@
+version: '3.8'  # most recent stable Compose file format
+services:
+  vault:
+    image: hashicorp/vault
+    container_name: vault
+    ports:
+      - "8200:8200"
+    restart: on-failure
+    volumes:
+      - ./volumes/logs:/vault/logs
+      - ./volumes/file:/vault/file
+      - ./volumes/config:/vault/config
+      - ./vault.json:/vault.json
+    cap_add:
+      - IPC_LOCK
+    environment:
+      VAULT_ADDR: http://localhost:8200
+    entrypoint: vault server -config=/vault.json
