@@ -29,12 +29,6 @@ spring:
 spring-boot-value:
   property: ${demo}
 
-
-#  main:
-#    allow-bean-definition-overriding: true
-#  config:
-#    import: vault://http://localhost:8204/spring-boot-microservices
-#
 management:
   endpoints:
     web:
