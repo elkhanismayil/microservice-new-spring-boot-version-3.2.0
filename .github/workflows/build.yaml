@@ -30,7 +30,7 @@ jobs:
       - name: Build
         working-directory: ${{ matrix.image_name }}
         run: | 
-          ./gradlew bootJar
+          gradle bootJar
           mv build/libs/$(ls build/libs) app.jar
 
       - name: Log in to GitHub Container Registry
